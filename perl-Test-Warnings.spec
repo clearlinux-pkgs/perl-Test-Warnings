@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Warnings
 Version  : 0.021
-Release  : 5
+Release  : 6
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.021.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.021.tar.gz
 Summary  : 'Test for warnings and the lack of them'
