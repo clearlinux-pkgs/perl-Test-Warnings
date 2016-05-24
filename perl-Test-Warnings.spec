@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Warnings
 Version  : 0.026
-Release  : 11
+Release  : 12
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
 Summary  : 'Test for warnings and the lack of them'
@@ -57,7 +57,7 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.22.0/Test/Warnings.pm
+/usr/lib/perl5/site_perl/5.24.0/Test/Warnings.pm
 
 %files doc
 %defattr(-,root,root,-)
