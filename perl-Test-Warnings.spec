@@ -4,25 +4,36 @@
 #
 Name     : perl-Test-Warnings
 Version  : 0.026
-Release  : 19
+Release  : 20
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
 Summary  : 'Test for warnings and the lack of them'
 Group    : Development/Tools
-License  : Artistic-1.0-Perl GPL-1.0
-Requires: perl-Test-Warnings-doc
+License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
+Requires: perl-Test-Warnings-data = %{version}-%{release}
+BuildRequires : buildreq-cpan
 
 %description
 This archive contains the distribution Test-Warnings,
 version 0.026:
 Test for warnings and the lack of them
 
-%package doc
-Summary: doc components for the perl-Test-Warnings package.
-Group: Documentation
+%package data
+Summary: data components for the perl-Test-Warnings package.
+Group: Data
 
-%description doc
-doc components for the perl-Test-Warnings package.
+%description data
+data components for the perl-Test-Warnings package.
+
+
+%package dev
+Summary: dev components for the perl-Test-Warnings package.
+Group: Development
+Requires: perl-Test-Warnings-data = %{version}-%{release}
+Provides: perl-Test-Warnings-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-Test-Warnings package.
 
 
 %prep
@@ -35,7 +46,7 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
-make V=1  %{?_smp_mflags}
+make  %{?_smp_mflags}
 else
 %{__perl} Build.PL
 ./Build
@@ -50,10 +61,12 @@ make TEST_VERBOSE=1 test || :
 
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-Warnings
+cp LICENCE %{buildroot}/usr/share/package-licenses/perl-Test-Warnings/LICENCE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -62,8 +75,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Test/Warnings.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Test/Warnings.pm
 
-%files doc
+%files data
 %defattr(-,root,root,-)
-%doc /usr/share/man/man3/*
+/usr/share/package-licenses/perl-Test-Warnings/LICENCE
+
+%files dev
+%defattr(-,root,root,-)
+/usr/share/man/man3/Test::Warnings.3
