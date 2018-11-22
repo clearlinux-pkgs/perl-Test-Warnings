@@ -4,13 +4,13 @@
 #
 Name     : perl-Test-Warnings
 Version  : 0.026
-Release  : 20
+Release  : 21
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
 Summary  : 'Test for warnings and the lack of them'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-Test-Warnings-data = %{version}-%{release}
+Requires: perl-Test-Warnings-license = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -18,22 +18,21 @@ This archive contains the distribution Test-Warnings,
 version 0.026:
 Test for warnings and the lack of them
 
-%package data
-Summary: data components for the perl-Test-Warnings package.
-Group: Data
-
-%description data
-data components for the perl-Test-Warnings package.
-
-
 %package dev
 Summary: dev components for the perl-Test-Warnings package.
 Group: Development
-Requires: perl-Test-Warnings-data = %{version}-%{release}
 Provides: perl-Test-Warnings-devel = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-Warnings package.
+
+
+%package license
+Summary: license components for the perl-Test-Warnings package.
+Group: Default
+
+%description license
+license components for the perl-Test-Warnings package.
 
 
 %prep
@@ -75,12 +74,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.26.1/Test/Warnings.pm
-
-%files data
-%defattr(-,root,root,-)
-/usr/share/package-licenses/perl-Test-Warnings/LICENCE
+/usr/lib/perl5/vendor_perl/5.28.0/Test/Warnings.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Test::Warnings.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Test-Warnings/LICENCE
