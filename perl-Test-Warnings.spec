@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-Warnings
 Version  : 0.026
-Release  : 28
+Release  : 29
 URL      : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/E/ET/ETHER/Test-Warnings-0.026.tar.gz
-Summary  : 'Test for warnings and the lack of them'
+Summary  : Test for warnings and the lack of them
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Test-Warnings-license = %{version}-%{release}
@@ -22,6 +22,7 @@ Test for warnings and the lack of them
 Summary: dev components for the perl-Test-Warnings package.
 Group: Development
 Provides: perl-Test-Warnings-devel = %{version}-%{release}
+Requires: perl-Test-Warnings = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-Warnings package.
