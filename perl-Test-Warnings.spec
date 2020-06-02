@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-Warnings
 Version  : 0.030
-Release  : 39
+Release  : 40
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.030.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.030.tar.gz
-Summary  : Test for warnings and the lack of them
+Summary  : 'Test for warnings and the lack of them'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Test-Warnings-license = %{version}-%{release}
@@ -23,7 +23,6 @@ Test for warnings and the lack of them
 Summary: dev components for the perl-Test-Warnings package.
 Group: Development
 Provides: perl-Test-Warnings-devel = %{version}-%{release}
-Requires: perl-Test-Warnings = %{version}-%{release}
 Requires: perl-Test-Warnings = %{version}-%{release}
 
 %description dev
@@ -98,4 +97,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/Test/Warnings.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Test/Warnings.pm
