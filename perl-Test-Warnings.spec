@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Warnings
 Version  : 0.031
-Release  : 49
+Release  : 50
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.031.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.031.tar.gz
 Summary  : 'Test for warnings and the lack of them'
@@ -97,4 +97,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.34.0/Test/Warnings.pm
+/usr/lib/perl5/*
