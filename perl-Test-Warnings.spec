@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-Warnings
 Version  : 0.031
-Release  : 50
+Release  : 51
 URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.031.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.031.tar.gz
 Summary  : 'Test for warnings and the lack of them'
