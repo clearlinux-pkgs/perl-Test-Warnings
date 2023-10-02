@@ -4,14 +4,13 @@
 # Using build pattern: cpan
 #
 Name     : perl-Test-Warnings
-Version  : 0.031
-Release  : 52
-URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.031.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.031.tar.gz
+Version  : 0.032
+Release  : 53
+URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.032.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.032.tar.gz
 Summary  : 'Test for warnings and the lack of them'
 Group    : Development/Tools
-License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-Test-Warnings-license = %{version}-%{release}
+License  : Artistic-1.0-Perl
 Requires: perl-Test-Warnings-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 # Suppress stripping binaries
@@ -20,7 +19,7 @@ BuildRequires : buildreq-cpan
 
 %description
 This archive contains the distribution Test-Warnings,
-version 0.031:
+version 0.032:
 Test for warnings and the lack of them
 
 %package dev
@@ -33,14 +32,6 @@ Requires: perl-Test-Warnings = %{version}-%{release}
 dev components for the perl-Test-Warnings package.
 
 
-%package license
-Summary: license components for the perl-Test-Warnings package.
-Group: Default
-
-%description license
-license components for the perl-Test-Warnings package.
-
-
 %package perl
 Summary: perl components for the perl-Test-Warnings package.
 Group: Default
@@ -51,8 +42,11 @@ perl components for the perl-Test-Warnings package.
 
 
 %prep
-%setup -q -n Test-Warnings-0.031
-cd %{_builddir}/Test-Warnings-0.031
+%setup -q -n Test-Warnings-0.032
+cd %{_builddir}/Test-Warnings-0.032
+pushd ..
+cp -a Test-Warnings-0.032 buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -76,8 +70,6 @@ make TEST_VERBOSE=1 test || :
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-Warnings
-cp %{_builddir}/Test-Warnings-%{version}/LICENCE %{buildroot}/usr/share/package-licenses/perl-Test-Warnings/69164988444003f1e2f00c57246af36c37320094 || :
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -87,6 +79,7 @@ find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
 find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %{_fixperms} %{buildroot}/*
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -94,10 +87,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Test::Warnings.3
-
-%files license
-%defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Test-Warnings/69164988444003f1e2f00c57246af36c37320094
 
 %files perl
 %defattr(-,root,root,-)
