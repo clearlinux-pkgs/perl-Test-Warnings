@@ -6,10 +6,10 @@
 # autospec commit: 94c6be0
 #
 Name     : perl-Test-Warnings
-Version  : 0.037
-Release  : 61
-URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.037.tar.gz
-Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.037.tar.gz
+Version  : 0.038
+Release  : 62
+URL      : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.038.tar.gz
+Source0  : https://cpan.metacpan.org/authors/id/E/ET/ETHER/Test-Warnings-0.038.tar.gz
 Summary  : 'Test for warnings and the lack of them'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
@@ -22,7 +22,7 @@ BuildRequires : buildreq-cpan
 
 %description
 This archive contains the distribution Test-Warnings,
-version 0.037:
+version 0.038:
 Test for warnings and the lack of them
 
 %package dev
@@ -53,10 +53,10 @@ perl components for the perl-Test-Warnings package.
 
 
 %prep
-%setup -q -n Test-Warnings-0.037
-cd %{_builddir}/Test-Warnings-0.037
+%setup -q -n Test-Warnings-0.038
+cd %{_builddir}/Test-Warnings-0.038
 pushd ..
-cp -a Test-Warnings-0.037 buildavx2
+cp -a Test-Warnings-0.038 buildavx2
 popd
 
 %build
